@@ -1,0 +1,26 @@
+{
+  "name": "workflow",
+  "version": "1.0.0",
+  "description": "Atividade do modulo workflow",
+  "main": "source/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suelenbraga2006/atividade-workflow.git"
+  },
+  "keywords": [
+    "atividade",
+    "workflow"
+  ],
+  "author": "Suelen Braga",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/suelenbraga2006/atividade-workflow/issues"
+  },
+  "homepage": "https://github.com/suelenbraga2006/atividade-workflow#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
