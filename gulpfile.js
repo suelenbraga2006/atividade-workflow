@@ -26,7 +26,7 @@ gulp.task('compilarcss',function(){
 gulp.task('minificarcss',['compilarcss'],function(){
 	return gulp.src('./dist/css/*.css')
 		   .pipe(concat('style.min.css'))
-		   .pipe(commentcss({all: true}))
+		   .pipe(commentcss())
 		   .pipe(cssmin())
 		   .pipe(gulp.dest('./dist/css/'));
 });
