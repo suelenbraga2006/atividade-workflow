@@ -6,10 +6,9 @@ var gulp = require("gulp");
 
 var sass = require("gulp-sass");
 var cssmin = require("gulp-cssmin");
+var rename = require('gulp-rename');
 
 var htmlmin = require("gulp-htmlmin");
-
-var concat = require("gulp-concat");
 
 gulp.task('minificarhtml',function(){
 	return gulp.src(html)
@@ -25,8 +24,8 @@ gulp.task('compilarcss',function(){
 
 gulp.task('minificarcss',['compilarcss'],function(){
 	return gulp.src(css)
-		   .pipe(concat('style.min.css'))
 		   .pipe(cssmin())
+		   .pipe(rename({suffix:'.min'}))
 		   .pipe(gulp.dest('./dist/css/'));
 });
 
