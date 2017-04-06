@@ -1,5 +1,6 @@
 var html = ['./source/*.html'];
-var css = ['./source/scss/*.scss'];
+var scss = ['./source/scss/*.scss'];
+var css = ['./dist/css/*.css'];
 
 var gulp = require("gulp");
 
@@ -17,13 +18,13 @@ gulp.task('minificarhtml',function(){
 });
 
 gulp.task('compilarcss',function(){
-	return gulp.src(css)
-		   .pipe(sass().on('error', sass.logError))
+	return gulp.src(scss)
+		   .pipe(sass())
 		   .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('minificarcss',['compilarcss'],function(){
-	return gulp.src('./dist/css/*.css')
+	return gulp.src(css)
 		   .pipe(concat('style.min.css'))
 		   .pipe(cssmin())
 		   .pipe(gulp.dest('./dist/css/'));
@@ -33,5 +34,5 @@ gulp.task('compmin',['minificarhtml','minificarcss']);
 
 gulp.task('monitorar',function(){
 	gulp.watch(html,['minificarhtml']);
-	gulp.watch(css,['minificarcss']);
+	gulp.watch(scss,['minificarcss']);
 });
