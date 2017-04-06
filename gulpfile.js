@@ -5,7 +5,6 @@ var gulp = require("gulp");
 
 var sass = require("gulp-sass");
 var cssmin = require("gulp-cssmin");
-var comentcss = require("gulp-strip-css-comments");
 
 var htmlmin = require("gulp-htmlmin");
 
@@ -26,7 +25,6 @@ gulp.task('compilarcss',function(){
 gulp.task('minificarcss',['compilarcss'],function(){
 	return gulp.src('./dist/css/*.css')
 		   .pipe(concat('style.min.css'))
-		   .pipe(commentcss())
 		   .pipe(cssmin())
 		   .pipe(gulp.dest('./dist/css/'));
 });
