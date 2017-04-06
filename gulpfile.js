@@ -10,10 +10,16 @@ var rename = require('gulp-rename');
 
 var htmlmin = require("gulp-htmlmin");
 
+var deleta = require("del");
+
 gulp.task('minificarhtml',function(){
 	return gulp.src(html)
 		   .pipe(htmlmin({collapseWhitespace: true}))
 		   .pipe(gulp.dest('./dist/'));	
+});
+
+gulp.task('apaga',function(){
+	deleta("./dist/css/*.min.css")
 });
 
 gulp.task('compilarcss',function(){
@@ -22,7 +28,7 @@ gulp.task('compilarcss',function(){
 		   .pipe(gulp.dest('./dist/css/'));
 });
 
-gulp.task('minificarcss',['compilarcss'],function(){
+gulp.task('minificarcss',['apaga','compilarcss'],function(){
 	return gulp.src(css)
 		   .pipe(cssmin())
 		   .pipe(rename({suffix:'.min'}))
